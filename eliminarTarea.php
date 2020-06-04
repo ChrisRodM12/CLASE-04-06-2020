@@ -3,7 +3,6 @@
 //echo "id de resgitro a eliminar = ".$_GET['id_para_borrar'];
 $id_registro_seleccionado = $_GET['id_para_borrar'];
 
-
 $servername = "localhost";
 $username = "root";
 $password = "";

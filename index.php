@@ -50,26 +50,31 @@
                     <label for="">Fecha de Vencimiento:</label>
                     <input type="date" name="input_fecha" id="" required>
                 </div>
-                <div class="item-form">
-                    <label for="">Prioridad de la Tarea:</label>
-                    <input type="text" name="input_prioridad" id="" required>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Prioridad de la Tarea:</label>
+                    <select name="input_prioridad" id="inputState" class="form-control" type="text">
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                    </select>
                 </div>
                 <div class="item-form">
                     <label for="">Responsable de la Tarea:</label>
                     <input type="text" name="input_responsable" id="" required>
                 </div>
+                <br>
                 <div class="item-form">
                     <input type="submit" value="Guardar">
                 </div>                
             </form>
             <table border="1">
                 <tr>
+                    <th>id</th>
                     <th>Nombre de la Tarea</th>
                     <th>Descripción de la Tarea</th>
                     <th>Fecha de Vencimiento</th>
                     <th>Prioridad de la Tarea</th>
                     <th>Responsable de la Tarea</th>
-                    <th>id</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -82,28 +87,29 @@
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 if($conn->connect_error)
                 {
+                    echo "<br>";
                     echo "Ha fallado la conexión con la Base de Datos Mysql";
                     die("Ha fallado la conexión " . $conn->connect_error);
                 }
                 else
                 {
+                    echo "<br>";
                     echo "Conexión establecida entre PHP y Mysql";
                     echo "<br>";
                 }
                 //crear sentencia sql
-                $sql = "SELECT * from tareas";
+                $sql = "SELECT * from tareas ORDER BY Vencimiento ASC";
                 //lanzar la sentencia sql
                 $respuesta = $conn->query($sql);
-                while($row=$respuesta->fetch_array())
-                {
+                while($row=$respuesta->fetch_array()) {
                 ?>
                 <tr>
+                    <td> <?php echo $row['id_pk']; ?></td>
                     <td> <?php echo $row['Nombre']; ?></td>
                     <td> <?php echo $row['Descripcion']; ?></td>
                     <td> <?php echo $row['Vencimiento']; ?></td>
                     <td> <?php echo $row['Prioridad']; ?></td>
                     <td> <?php echo $row['Responsable']; ?></td>
-                    <td> <?php echo $row['id_pk']; ?></td>
                     <td><a href="verTareaParaEditar.php?id_para_editar=<?php echo $row['id_pk']; ?>">Editar</a></td>
                     <td><a href="eliminarTarea.php?id_para_borrar=<?php echo $row['id_pk']; ?>">Eliminar</a></td>
                 </tr>

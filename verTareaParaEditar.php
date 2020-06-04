@@ -45,9 +45,13 @@
         <label for="">Fecha de Vencimiento:</label>
         <input value="<?php echo $fecha; ?>" type="date" name="input_fecha" id="" required>
     </div>
-    <div class="item-form">
-        <label for="">Prioridad de la Tarea:</label>
-        <input value="<?php echo $prioridad; ?>" type="text" name="input_prioridad" id="" required>
+    <div class="form-group col-md-4">
+        <label for="inputState">Prioridad de la Tarea:</label>
+        <select name="input_prioridad" id="inputState" class="form-control" type="text">
+            <option value="Alta">Alta</option>
+            <option value="Media">Media</option>
+            <option value="Baja">Baja</option>
+        </select>
     </div>
     <div class="item-form">
         <label for="">Responsable de la Tarea:</label>

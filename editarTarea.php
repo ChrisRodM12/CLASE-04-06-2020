@@ -7,18 +7,18 @@ $fecha = $_POST['input_fecha'];
 $prioridad = $_POST['input_prioridad'];
 $responsable = $_POST['input_responsable'];
 
-// echo $id;
-// echo "</br>";
-// echo $nombre;
-// echo "</br>";
-// echo $descripcion;
-// echo "</br>";
-// echo $fecha;
-// echo "</br>";
-// echo $prioridad;
-// echo "</br>";
-// echo $responsable;
-// echo "</br>";
+echo $id;
+echo "</br>";
+echo $nombre;
+echo "</br>";
+echo $descripcion;
+echo "</br>";
+echo $fecha;
+echo "</br>";
+echo $prioridad;
+echo "</br>";
+echo $responsable;
+echo "</br>";
 
 //1. conexión entre nuestra app(php) y el servidor de bases de datos(mysql)
 $servername = "localhost";
